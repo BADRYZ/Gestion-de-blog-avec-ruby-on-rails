@@ -1,0 +1,45 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+#logo {
+    font-size: 2em;
+    color :black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#logo:hover{
+    color:grey;
+    text-decoration: none;
+}
+
+
+
+footer{
+    margin-top: 50px;
+    border-top: 1px solid #eaeaea;
+    padding-top: 5px;
+    color:#777;
+}
+
+footer a:hover{
+    color:#222;
+}
+
+footer small {
+    float: left;
+}
+
+footer ul{
+    float: right;
+    list-style: none;
+}
+footer ul li{
+    float: left;
+    margin-left:15px ;
+}
+
+.jumbotron{
+    background-image: asset-url('img1.jpeg');
+    background-size: cover;
+    height: 350px;
+}
