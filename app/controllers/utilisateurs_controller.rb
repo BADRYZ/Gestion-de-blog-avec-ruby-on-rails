@@ -1,5 +1,6 @@
 class UtilisateursController < ApplicationController
   before_action :authenticate, only: [:edit, :update]
+  before_action :bon_utilisateur, only: [:edit, :update]
 
   def new
     @utilisateur = Utilisateur.new
@@ -44,5 +45,10 @@ class UtilisateursController < ApplicationController
       flash[:danger] = "Merci de vous connecter."
       redirect_to login_url
     end
+  end
+
+  def bon_utilisateur
+    @utilisateur = Utilisateur.find(params[:id])
+    redirect_to(root_url) unless @utilisateur == utilisateur_courant
   end
 end
