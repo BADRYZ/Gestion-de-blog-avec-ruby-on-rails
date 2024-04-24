@@ -1,4 +1,6 @@
 class UtilisateursController < ApplicationController
+  before_action :authenticate, only: [:edit, :update]
+
   def new
     @utilisateur = Utilisateur.new
   end
@@ -35,5 +37,12 @@ class UtilisateursController < ApplicationController
 
   def utilisateur_params
     params.require(:utilisateur).permit(:nom, :email, :password, :password_confirmation)
+  end
+
+  def authenticate
+    unless logged_in?
+      flash[:danger] = "Merci de vous connecter."
+      redirect_to login_url
+    end
   end
 end
