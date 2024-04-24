@@ -42,7 +42,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compte <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to "Profile", utilisateur_path(utilisateur_courant) %></li>
-              <li><%= link_to "Paramètres", '#' %></li>
+              <li><%= link_to "Paramètres", edit_utilisateur_path(utilisateur_courant) %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Se déconnecter", logout_path, method: "get" %></li>
             </ul>
