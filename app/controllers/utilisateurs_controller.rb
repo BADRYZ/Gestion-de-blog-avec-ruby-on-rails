@@ -15,7 +15,7 @@ class UtilisateursController < ApplicationController
 
   def show
     @utilisateur = Utilisateur.find(params[:id])
-    @articles=@utilisateur.articles
+    @articles=@utilisateur.article
   end
 
   def create

@@ -1,5 +1,5 @@
 class Utilisateur < ApplicationRecord
-    has_many :articles, dependent: :destroy
+    has_many :article, dependent: :destroy
 
     validates :nom, presence: true, length: { maximum: 50 }
     VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

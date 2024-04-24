@@ -1,6 +1,6 @@
 <%= @utilisateur.nom %>,<%= @utilisateur.email%>
-<% if @utilisateur.articles.any? %>
-      <h3>Articles (<%= @utilisateur.articles.count %>)</h3>
+<% if @utilisateur.article.any? %>
+      <h3>Articles (<%= @utilisateur.article.count %>)</h3>
       <ol class="articles">
         <%= render @articles %>
       </ol>
