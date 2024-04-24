@@ -1,6 +1,13 @@
 class UtilisateursController < ApplicationController
-  before_action :authenticate, only: [:edit, :update]
+  before_action :authenticate, only: [:index,:edit, :update,:destroy]
   before_action :bon_utilisateur, only: [:edit, :update]
+  before_action :utilisateur_admin, only: :destroy
+
+
+  def index
+    @utilisateurs = Utilisateur.paginate(page: params[:page], per_page: 2)
+  end
+
 
   def new
     @utilisateur = Utilisateur.new
@@ -8,6 +15,7 @@ class UtilisateursController < ApplicationController
 
   def show
     @utilisateur = Utilisateur.find(params[:id])
+    @articles=@utilisateur.articles
   end
 
   def create
@@ -51,4 +59,22 @@ class UtilisateursController < ApplicationController
     @utilisateur = Utilisateur.find(params[:id])
     redirect_to(root_url) unless @utilisateur == utilisateur_courant
   end
+
+  def destroy
+    Utilisateur.find(params[:id]).destroy
+    flash[:success]="utiisateur supprime"
+    redirect_to root_url
+
+  end
+
+
+  def utilisateur_admin
+    @utilisateur=Utilisateur.find(params[:id])
+    if not @utilisateur_courant.admin? || @utilisateur==utilisateur_courant
+      redirect_to(root_url)
+    end
+
+  end
+
+
 end
