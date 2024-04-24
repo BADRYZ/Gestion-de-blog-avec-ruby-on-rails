@@ -14,6 +14,7 @@ class UtilisateursController < ApplicationController
       render 'new'
     end
   end
+
   private
     def utilisateur_params
       params.require(:utilisateur).permit(

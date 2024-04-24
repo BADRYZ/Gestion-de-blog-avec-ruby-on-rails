@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+ # get 'sessions/new'
+ get 'login'=>'sessions#new'
+ post 'login'=> 'sessions#create'
+ get 'logout'=> 'sessions#destroy'
+
+
   #get 'utilisateurs/new'
   #get 'pages/home'
   #get 'pages/aide'
@@ -12,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'inscription' => 'utilisateurs#new'
   resources :utilisateurs
+  #resources :
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
